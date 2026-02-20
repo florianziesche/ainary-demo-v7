@@ -51,7 +51,7 @@
 
   /* ── Document Header ── */
   .doc-hdr { border-bottom: 2px solid var(--text); padding-bottom: 16px; margin-bottom: 24px; }
-  .doc-title { font-size: 18pt; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 4px; }
+  .doc-title { font-size: 18pt; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 4px; }
   .doc-sub { font-size: 10pt; color: var(--text2); }
 
   /* ── KPI Row ── */
@@ -200,28 +200,6 @@
     text-align: right; margin-bottom: 32px;
   }
 
-  /* ── RAG Teaser ── */
-  .rag {
-    display: flex; align-items: center; gap: 12px;
-    border: 1px dashed var(--border2); border-radius: 4px;
-    padding: 16px; margin-bottom: 32px; opacity: .55; cursor: pointer;
-    transition: opacity .12s;
-  }
-  .rag:hover { opacity: .75; }
-  .rag-icon {
-    width: 32px; height: 32px; border-radius: 4px;
-    background: var(--surface); border: 1px solid var(--border2);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .rag-icon svg { width: 13px; height: 13px; stroke: var(--muted); fill: none; stroke-width: 2; }
-  .rag-text { flex: 1; }
-  .rag-title { font-size: 8.5pt; font-weight: 500; color: var(--text2); margin-bottom: 2px; }
-  .rag-sub { font-size: 7.5pt; color: var(--muted); line-height: 1.45; }
-  .rag-badge {
-    font-family: var(--m); font-size: 7pt; color: var(--light);
-    border: 1px solid var(--border2); border-radius: 3px; padding: 2px 6px; flex-shrink: 0;
-  }
-
   /* ── Footer ── */
   .ftr {
     margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
@@ -254,7 +232,7 @@
     <div class="portal-left">
       <a href="index.html" style="display:flex;align-items:center;gap:8px"><span class="brand-dot"></span><span class="brand-name">Ainary</span></a>
       <span class="portal-sep">·</span>
-      <a href="#" class="portal-action">Abmelden</a>
+      <span style="color:var(--light)">Abmelden</span>
     </div>
     <div class="portal-center">
       <span style="display:flex;align-items:center;gap:3px"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Glashütte</span>
@@ -389,23 +367,17 @@
     <div class="proj-empty-text">Noch keine eigenen Projekte.</div>
     <div class="proj-actions">
       <a href="#mia" class="proj-action" onclick="openMiaWith('Ich möchte ein eigenes Projekt anfragen.')"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Projekt anfragen</a>
-      <a href="#mia" class="proj-action" onclick="openMiaWith('Welche Projekte würdest du mir vorschlagen?')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Projektvorschlag erhalten</a>
+      <a href="#mia" class="proj-action" onclick="openMiaWith('Welche Projekte würdest du mir vorschlagen?')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Projektvorschlag</a>
+      <a href="#mia" class="proj-action" onclick="openMiaWith('Ich möchte ein Dokument hochladen.')"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Dokument hochladen</a>
     </div>
-  </div>
-  <div class="proj-aside">Beispiele: Wahleinblicke 2026 · Tourismuskonzept Uhrenstadt · Fachkräfte-Kampagne · Energie-Audit</div>
-
-  <!-- RAG -->
-  <div class="rag" onclick="openMiaWith('Ich möchte ein Dokument hochladen.')">
-    <div class="rag-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
-    <div class="rag-text"><div class="rag-title">Dokumente hochladen → bessere Analysen</div><div class="rag-sub">Gemeinderatsprotokolle, Haushaltspläne → automatische Verknüpfung mit Fördermitteln.</div></div>
-    <div class="rag-badge">Ab Starter</div>
+    <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:8px">Beispiele: Wahleinblicke 2026 · Tourismuskonzept · Fachkräfte-Kampagne · Energie-Audit · Gemeinderatsprotokolle</div>
   </div>
 
   <!-- Footer -->
   <footer class="ftr">
     <span>© 2026 Ainary</span><span>·</span>
     <a href="methodik.html">Methodik</a><span>·</span>
-    <a href="#">Datenschutz</a><span>·</span>
+    <a href="https://ainaryventures.com/de/privacy.html" target="_blank">Datenschutz</a><span>·</span>
     <span>Verschlüsselt</span>
   </footer>
 
