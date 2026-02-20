@@ -200,6 +200,44 @@
     text-align: right; margin-bottom: 32px;
   }
 
+  /* ── Auf einen Blick (Visual Cards) ── */
+  .glance { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px; }
+  .glance-card {
+    border: 1px solid var(--border2); border-radius: 4px; padding: 20px;
+    transition: border-color .12s;
+  }
+  .glance-card:hover { border-color: var(--border); }
+  .glance-title { font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 12px; }
+  /* Timeline */
+  .tl { position: relative; padding-left: 20px; }
+  .tl::before { content: ''; position: absolute; left: 5px; top: 4px; bottom: 4px; width: 1px; background: var(--border2); }
+  .tl-item { position: relative; margin-bottom: 14px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: -20px; top: 3px;
+    width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--border);
+    background: #fff;
+  }
+  .tl-dot.urgent { border-color: var(--red); background: rgba(192,57,43,.08); }
+  .tl-dot.soon { border-color: var(--amber); background: rgba(180,83,9,.06); }
+  .tl-dot.normal { border-color: var(--border); }
+  .tl-date { font-family: var(--m); font-size: 7pt; color: var(--muted); margin-bottom: 1px; }
+  .tl-label { font-size: 8.5pt; font-weight: 500; color: var(--text); margin-bottom: 1px; }
+  .tl-amount { font-family: var(--m); font-size: 7.5pt; color: var(--muted); }
+  /* Comparison bars */
+  .cmp-item { margin-bottom: 10px; }
+  .cmp-item:last-child { margin-bottom: 0; }
+  .cmp-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
+  .cmp-name { font-size: 8.5pt; color: var(--text2); }
+  .cmp-val { font-family: var(--m); font-size: 7.5pt; color: var(--muted); }
+  .cmp-bar { height: 6px; background: var(--border2); border-radius: 3px; overflow: hidden; }
+  .cmp-fill { height: 100%; border-radius: 3px; transition: width .6s ease; }
+  .cmp-fill.low { background: var(--red); opacity: .65; }
+  .cmp-fill.mid { background: var(--amber); opacity: .6; }
+  .cmp-fill.high { background: var(--green); opacity: .55; }
+  .cmp-fill.you { background: var(--accent); }
+  @media (max-width: 768px) { .glance { grid-template-columns: 1fr; } }
+
   /* ── Footer ── */
   .ftr {
     margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
@@ -294,6 +332,54 @@
         <span class="mia-chip" onclick="sendChip('Uhrenindustrie')">Uhrenindustrie</span>
       </div>
       <div class="mia-badge">Mia ist eine KI-Assistentin · Antworten basieren auf Ihren Reports</div>
+    </div>
+  </div>
+
+  <!-- Auf einen Blick -->
+  <div class="sec-label">Auf einen Blick</div>
+  <div class="glance">
+    <div class="glance-card">
+      <div class="glance-title">Nächste Fristen</div>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-dot urgent"></div>
+          <div class="tl-date">28.02.2026 · in 8 Tagen</div>
+          <div class="tl-label">Breitband-Ausbau Müglitztal</div>
+          <div class="tl-amount">Anmeldefrist Glasfaser-Förderung</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot soon"></div>
+          <div class="tl-date">15.04.2026</div>
+          <div class="tl-label">Smarte Regionen Sachsen</div>
+          <div class="tl-amount">Potenzialcheck · bis €50k</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot normal"></div>
+          <div class="tl-date">31.08.2026</div>
+          <div class="tl-label">Kulturraum-Förderrichtlinie</div>
+          <div class="tl-amount">Neue Richtlinie · bis €150k</div>
+        </div>
+      </div>
+    </div>
+    <div class="glance-card">
+      <div class="glance-title">Digitale Services · Benchmark</div>
+      <div class="cmp-item">
+        <div class="cmp-top"><span class="cmp-name">Dippoldiswalde</span><span class="cmp-val">5/6</span></div>
+        <div class="cmp-bar"><div class="cmp-fill high" style="width:83%"></div></div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-top"><span class="cmp-name">Freital</span><span class="cmp-val">4/6</span></div>
+        <div class="cmp-bar"><div class="cmp-fill mid" style="width:67%"></div></div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-top"><span class="cmp-name">Altenberg</span><span class="cmp-val">3/6</span></div>
+        <div class="cmp-bar"><div class="cmp-fill mid" style="width:50%"></div></div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-top"><span class="cmp-name" style="font-weight:600;color:var(--text)">Glashütte</span><span class="cmp-val" style="color:var(--accent)">1/6</span></div>
+        <div class="cmp-bar"><div class="cmp-fill you" style="width:17%"></div></div>
+      </div>
+      <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:8px">Quick Win: gleicher Anbieter wie Dippoldiswalde · 2–4 Wo. · <a href="analyse-digitalisierung.html" style="color:var(--accent)">Details →</a></div>
     </div>
   </div>
 
@@ -399,7 +485,7 @@ const R={
 'upload':['Formate: PDF, Word, Excel, Bilder. Alles verschlüsselt, nur für Ihre Analysen.<br><em style="font-size:7.5pt;color:var(--muted)">Upload ab Starter-Abo verfügbar.</em>'],
 };
 function findResponse(t){t=t.toLowerCase();if(t.includes('projekt anfragen')||t.includes('eigenes projekt'))return R['projekt_anfragen'];if(t.includes('vorschlag')||t.includes('vorschläge')||t.includes('empfiehlst'))return R['projektvorschlag'];if(t.includes('hochladen')||t.includes('upload')||t.includes('dokument'))return R['upload'];if(t.includes('förder')||t.includes('geld')||t.includes('antrag'))return R['fördermittel'];if(t.includes('wind')||t.includes('umspann'))return R['windkraft'];if(t.includes('digital')||t.includes('online')||t.includes('dippoldi'))return R['digital'];if(t.includes('uhr')||t.includes('lange')||t.includes('nomos'))return R['uhren'];if(t.includes('danke')||t.includes('super'))return R['danke'];if(t.includes('empfehl')||t.includes('teilen'))return R['empfehlung'];if(t.includes('termin')||t.includes('florian'))return R['termin'];return['Ich kann zu <strong>Fördermitteln</strong>, <strong>Digitalisierung</strong>, <strong>Bürgerstimmung</strong> und <strong>Uhrenindustrie</strong> Auskunft geben. Oder sagen Sie <strong>„Projektvorschlag"</strong>.'];}
-function addMsg(t,u){const m=document.getElementById('mia-messages'),d=document.createElement('div');d.className='mia-msg'+(u?' user':'');d.innerHTML=u?'<div class="mia-msg-t">'+t+'</div>':'<div class="mia-msg-a">M</div><div class="mia-msg-t">'+t+'</div>';m.appendChild(d);m.scrollTop=m.scrollHeight}
+function addMsg(t,u){const m=document.getElementById('mia-messages'),d=document.createElement('div');d.className='mia-msg'+(u?' user':'');if(u){d.innerHTML='<div class="mia-msg-t">'+t+'</div>';m.appendChild(d);m.scrollTop=m.scrollHeight}else{const av=document.createElement('div');av.className='mia-msg-a';av.textContent='M';const tb=document.createElement('div');tb.className='mia-msg-t';d.appendChild(av);d.appendChild(tb);m.appendChild(d);m.scrollTop=m.scrollHeight;const chars=t.split('');let i=0,buf='',inTag=false;function tick(){if(i>=chars.length){tb.innerHTML=t;m.scrollTop=m.scrollHeight;return}buf+=chars[i];if(chars[i]==='<')inTag=true;if(chars[i]==='>')inTag=false;i++;if(inTag){tick()}else{tb.innerHTML=buf;m.scrollTop=m.scrollHeight;setTimeout(tick,14+Math.random()*10)}}tick()}}
 function sendChip(t){const b=document.getElementById('mia-body'),l=document.getElementById('mia-toggle-label');if(!b.classList.contains('open')){b.classList.add('open');l.textContent='↑'}addMsg(t,true);setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*600)}
 function sendMia(){const i=document.getElementById('mia-input'),t=i.value.trim();if(!t)return;addMsg(t,true);i.value='';setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*800)}
 </script>
