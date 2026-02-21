@@ -153,23 +153,37 @@
   <div class="hero-rule"></div>
   <div class="hero-sub">Die Frage ist nicht ob Sie KI brauchen. Sondern wann.</div>
 
-  <!-- Waffle Chart: 4 dark, 6 light = 40% -->
-  <div class="waffle">
-    <div class="waffle-cell dark"></div>
-    <div class="waffle-cell dark"></div>
-    <div class="waffle-cell dark"></div>
-    <div class="waffle-cell dark"></div>
-    <div class="waffle-cell light"></div>
-    <div class="waffle-cell light"></div>
-    <div class="waffle-cell light"></div>
-    <div class="waffle-cell light"></div>
-    <div class="waffle-cell light"></div>
-    <div class="waffle-cell light"></div>
+  <!-- Unit Chart: 100 dots = Ihr Team -->
+  <div style="margin:24px 0 8px;font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.08em;text-transform:uppercase">Ihr Team — 100 Mitarbeiter</div>
+  <div id="unit-chart" style="display:grid;grid-template-columns:repeat(20,1fr);gap:4px;max-width:520px"></div>
+  <div style="display:flex;gap:16px;margin-top:10px;font-size:7.5pt;flex-wrap:wrap">
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#c0392b;flex-shrink:0"></span> <span style="color:var(--muted)">33 gehen in Rente bis 2030</span></span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;border:1.5px dashed var(--border);background:none;flex-shrink:0"></span> <span style="color:var(--muted)">12 Stellen unbesetzt</span></span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#1a1a1a;flex-shrink:0"></span> <span style="color:var(--muted)">22 machen Routine</span></span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#e0dfdb;flex-shrink:0"></span> <span style="color:var(--muted)">33 wertschöpfende Arbeit</span></span>
   </div>
-  <div class="waffle-legend">
-    <span class="leg-dark">Routineaufgaben</span>
-    <span class="leg-light">Wertschöpfende Arbeit</span>
-  </div>
+  <div style="font-family:var(--m);font-size:7pt;color:var(--light);margin-top:6px;font-style:italic">Von 50 Mitarbeitern gehen 17 in Rente. 6 Stellen sind unbesetzt. Von den verbleibenden 27 verbringen 11 ihre Zeit mit Routine.</div>
+  <script>
+  (function(){
+    const c=document.getElementById('unit-chart');
+    // 33 retire (red) + 12 vacant (dashed) + 22 routine (black) + 33 productive (light) = 100
+    const dots=[
+      ...Array(33).fill('ret'),
+      ...Array(12).fill('vac'),
+      ...Array(22).fill('rout'),
+      ...Array(33).fill('prod')
+    ];
+    dots.forEach(t=>{
+      const d=document.createElement('div');
+      d.style.cssText='width:100%;aspect-ratio:1;border-radius:3px;';
+      if(t==='ret') d.style.background='#c0392b';
+      else if(t==='vac'){d.style.border='1.5px dashed #bbb';d.style.background='none';}
+      else if(t==='rout') d.style.background='#1a1a1a';
+      else d.style.background='#e0dfdb';
+      c.appendChild(d);
+    });
+  })();
+  </script>
 
   <!-- Evidence Cards -->
   <div class="sec">
