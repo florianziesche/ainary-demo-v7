@@ -275,19 +275,23 @@
     <div class="portal-center">
       <span style="display:flex;align-items:center;gap:3px"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Glashütte</span>
       <span>☁ 3°C</span>
-      <span style="font-family:var(--m)">Do, 20.02.2026</span>
+      <span style="font-family:var(--m)" id="live-date">Do, 20.02.2026</span>
+      <span style="font-family:var(--m)" id="live-time"></span>
     </div>
     <div class="portal-right">
-      <a href="analyse.html" class="portal-credits">Analyse</a>
-      <span style="color:var(--border2)">·</span>
-      <a href="projekte.html" class="portal-credits">Projekte</a>
     </div>
   </div>
 
   <!-- Document Header -->
-  <div class="doc-hdr">
-    <div class="doc-title">Guten Morgen, Herr Gleißberg.</div>
-    <div class="doc-sub">Ihre Wochen-Übersicht für Glashütte.</div>
+  <div class="doc-hdr" style="display:flex;justify-content:space-between;align-items:flex-end">
+    <div>
+      <div class="doc-title">Guten Morgen, Herr Gleißberg.</div>
+      <div class="doc-sub">Ihre Wochen-Übersicht für Glashütte.</div>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:4px">
+      <a href="analyse.html" style="font-family:var(--m);font-size:7.5pt;color:var(--accent);border:1px solid var(--border2);border-radius:4px;padding:4px 10px">Seite 2 · Analyse</a>
+      <a href="projekte.html" style="font-family:var(--m);font-size:7.5pt;color:var(--accent);border:1px solid var(--border2);border-radius:4px;padding:4px 10px">Seite 3 · Projekte</a>
+    </div>
   </div>
 
   <!-- KPI Row -->
@@ -308,24 +312,7 @@
       <div class="kpi-sub">Prüfen, entscheiden, handeln</div>
     </div>
   </div>
-  <!-- Evidence Chain KPIs -->
-  <div class="kpi-row" style="margin-bottom:8px">
-    <div class="kpi" style="background:rgba(192,57,43,.04)">
-      <div class="kpi-val" style="color:#c0392b">1,36 Mio.</div>
-      <div class="kpi-label">Gehen bis 2030 in Rente</div>
-      <div class="kpi-sub">dbb Beamtenbund 2023</div>
-    </div>
-    <div class="kpi" style="background:rgba(192,57,43,.04)">
-      <div class="kpi-val" style="color:#c0392b">31%</div>
-      <div class="kpi-label">Nichtbesetzungsquote</div>
-      <div class="kpi-sub">Demografieportal</div>
-    </div>
-    <div class="kpi" style="background:rgba(192,57,43,.04)">
-      <div class="kpi-val" style="color:#c0392b">40%</div>
-      <div class="kpi-label">Routinearbeit</div>
-      <div class="kpi-sub">KGSt / Fraunhofer FOKUS 2024</div>
-    </div>
-  </div>
+  <!-- Red KPIs moved to Analyse page -->
   <div class="kpi-aside">Identifiziertes Potenzial: €215k–580k · <a href="methodik.html">Methodik</a></div>
 
   <!-- Mia -->
@@ -537,6 +524,20 @@ function findResponse(t){t=t.toLowerCase();if(t.includes('projekt anfragen')||t.
 function addMsg(t,u){const m=document.getElementById('mia-messages'),d=document.createElement('div');d.className='mia-msg'+(u?' user':'');if(u){d.innerHTML='<div class="mia-msg-t">'+t+'</div>';m.appendChild(d);m.scrollTop=m.scrollHeight}else{const av=document.createElement('div');av.className='mia-msg-a';av.textContent='M';const tb=document.createElement('div');tb.className='mia-msg-t';d.appendChild(av);d.appendChild(tb);m.appendChild(d);m.scrollTop=m.scrollHeight;const chars=t.split('');let i=0,buf='',inTag=false;function tick(){if(i>=chars.length){tb.innerHTML=t;m.scrollTop=m.scrollHeight;return}buf+=chars[i];if(chars[i]==='<')inTag=true;if(chars[i]==='>')inTag=false;i++;if(inTag){tick()}else{tb.innerHTML=buf;m.scrollTop=m.scrollHeight;setTimeout(tick,14+Math.random()*10)}}tick()}}
 function sendChip(t){const b=document.getElementById('mia-body'),l=document.getElementById('mia-toggle-label');if(!b.classList.contains('open')){b.classList.add('open');l.textContent='↑'}addMsg(t,true);setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*600)}
 function sendMia(){const i=document.getElementById('mia-input'),t=i.value.trim();if(!t)return;addMsg(t,true);i.value='';setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*800)}
+</script>
+<script>
+// Live date + time
+function updateClock(){
+  const now=new Date();
+  const days=['So','Mo','Di','Mi','Do','Fr','Sa'];
+  const d=days[now.getDay()]+', '+now.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
+  const t=now.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
+  const el=document.getElementById('live-date');
+  if(el)el.textContent=d;
+  const et=document.getElementById('live-time');
+  if(et)et.textContent=t;
+}
+updateClock();setInterval(updateClock,10000);
 </script>
 </body>
 </html>
