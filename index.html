@@ -284,7 +284,7 @@
 
   <!-- Document Header -->
   <div class="doc-hdr">
-    <div class="doc-title">Guten Morgen, Herr Gleißberg.</div>
+    <div class="doc-title"><span id="greeting">Guten Morgen</span>, Herr Gleißberg.</div>
     <div class="doc-sub">Ihre Wochen-Übersicht für Glashütte.</div>
   </div>
   <!-- Page nav below the line -->
@@ -319,7 +319,7 @@
   <div class="mia" id="mia">
     <div class="mia-header" onclick="toggleMia()">
       <div class="mia-av">M</div>
-      <div class="mia-greeting"><strong>Mia:</strong> Guten Morgen, Herr Gleißberg. Kann ich Ihnen heute weiterhelfen?</div>
+      <div class="mia-greeting"><strong>Mia:</strong> <span id="greeting">Guten Morgen</span>, Herr Gleißberg. Kann ich Ihnen heute weiterhelfen?</div>
       <span class="mia-toggle" id="mia-toggle-label">↓</span>
     </div>
     <div class="mia-body" id="mia-body">
@@ -537,7 +537,7 @@ function updateClock(){
   const et=document.getElementById('live-time');
   if(et)et.textContent=t;
 }
-updateClock();setInterval(updateClock,10000);
+function updateGreeting(){const h=new Date().getHours();const g=document.getElementById("greeting");if(g)g.textContent=h>=5&&h<12?"Guten Morgen":h>=12&&h<18?"Guten Tag":"Guten Abend";}updateGreeting();updateClock();setInterval(updateClock,10000);
 </script>
 </body>
 </html>
