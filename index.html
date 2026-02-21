@@ -1,571 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Florian Ziesche — AI Strategy, Deployment & Venture | Ainary Ventures</title>
-    <meta name="description" content="AI consultant and former startup CEO who raised €5.5M+ and shipped to BMW, Siemens, and Bosch. Building AI systems that replace workflows, not tasks. VC Lab Fellow, Alchemist Accelerator alumni.">
-    <meta name="keywords" content="AI consultant, AI strategy, AI deployment, manufacturing AI, enterprise AI, RAG systems, multi-agent AI, venture capital, VC Lab, startup founder, Florian Ziesche, Ainary Ventures, CNC automation, AI agents, human-AI collaboration">
-    <meta name="author" content="Florian Ziesche">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://ainaryventures.com">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Übersicht — Ainary · Glashütte</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── Design Tokens ── */
+  :root {
+    --text:    #1a1a1a;
+    --text2:   #444;
+    --muted:   #777;
+    --light:   #bbb;
+    --border:  #d0d0d0;
+    --border2: #e8e8e8;
+    --surface: #fafafa;
+    --accent:  #9d7f3b;
+    --green:   #2d8a4e;
+    --f: 'Inter', -apple-system, sans-serif;
+    --m: 'JetBrains Mono', monospace;
+  }
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ainaryventures.com">
-    <meta property="og:title" content="Florian Ziesche — AI Strategy, Deployment & Venture">
-    <meta property="og:description" content="I build AI that replaces workflows, not tasks. Former startup CEO (€5.5M+ raised, BMW/Siemens/Bosch). Now: AI consulting, venture, and building tools for operators.">
-    <meta property="og:image" content="https://ainaryventures.com/florian-400.jpg">
+  /* ── Reset ── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--f); color: var(--text); font-size: 10pt;
+    line-height: 1.65; background: #fff; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@Florian1776">
-    <meta name="twitter:creator" content="@Florian1776">
-    <meta name="twitter:title" content="Florian Ziesche — AI Strategy, Deployment & Venture">
-    <meta name="twitter:description" content="I build AI that replaces workflows, not tasks. Former startup CEO, VC Lab Fellow, Alchemist alumni.">
-    <meta name="twitter:image" content="https://ainaryventures.com/florian-400.jpg">
+  /* ── Layout ── */
+  .page { max-width: 1040px; margin: 0 auto; padding: 32px 48px 48px; }
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Florian Ziesche",
-        "url": "https://ainaryventures.com",
-        "image": "https://ainaryventures.com/florian-400.jpg",
-        "jobTitle": "AI Consultant & VC Lab Fellow",
-        "worksFor": {"@type": "Organization", "name": "Ainary Ventures"},
-        "alumniOf": [
-            {"@type": "Organization", "name": "Technical University of Munich (TUM)"},
-            {"@type": "Organization", "name": "Alchemist Accelerator"},
-            {"@type": "Organization", "name": "VC Lab (Decile Group)"}
-        ],
-        "knowsAbout": ["Artificial Intelligence", "Machine Learning", "RAG Systems", "Multi-Agent AI", "Venture Capital", "Manufacturing Software", "Enterprise AI", "Computer Vision"],
-        "sameAs": [
-            "https://www.linkedin.com/in/florian-ziesche",
-            "https://x.com/Florian1776",
-            "https://florianziesche.substack.com"
-        ]
-    }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg:#0a0f1e;--gold:#c8aa50;--white:#e8e6df;
-            --gray:#8a8a94;--gray2:#5c5c66;--rule:rgba(200,170,80,0.07);
-            --card-bg:#12161f;
-        }
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth}
-        body{font-family:'DM Sans',-apple-system,sans-serif;background:var(--bg);color:var(--white);-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.75}
-        ::selection{background:var(--gold);color:var(--bg)}
-        h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;line-height:1.2}
-        a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(200,170,80,.25);transition:all .3s}
-        a:hover{border-color:var(--gold)}
-        .n{border-bottom:none}.n:hover{opacity:.7}
-        .m{font-family:'JetBrains Mono',monospace;font-size:.82em;color:var(--gold)}
-        .w{max-width:720px;margin:0 auto;padding:0 2rem}
+  /* ── Portal Header ── */
+  .portal-hdr {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 12px; margin-bottom: 32px; border-bottom: 1px solid var(--border2);
+    font-size: 8pt;
+  }
+  .portal-left { display: flex; align-items: center; gap: 8px; }
+  .brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .brand-name { font-weight: 500; color: var(--muted); }
+  .portal-sep { color: var(--border2); }
+  .portal-action { color: var(--light); }
+  .portal-center { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+  .portal-center svg { width: 10px; height: 10px; stroke: var(--muted); fill: none; stroke-width: 1.8; }
+  .portal-right { display: flex; align-items: center; gap: 12px; font-family: var(--m); }
+  .portal-trial { color: var(--muted); }
+  .portal-credits { color: var(--accent); }
 
-        /* NAV */
-        header{position:fixed;top:0;left:0;right:0;z-index:10;background:rgba(10,15,30,.95);backdrop-filter:blur(16px)}
-        header .w{display:flex;justify-content:space-between;align-items:baseline;padding-top:1.4rem;padding-bottom:1.4rem;border-bottom:1px solid var(--rule)}
-        .logo{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:400;letter-spacing:.3em;color:var(--gold);border:none}
-        header nav{display:flex;gap:1.8rem}
-        header nav a{font-size:.78rem;color:var(--gray2);border:none;letter-spacing:.02em}
-        header nav a:hover{color:var(--white);opacity:1}
+  /* ── Document Header ── */
+  .doc-hdr { border-bottom: 2px solid var(--text); padding-bottom: 16px; margin-bottom: 24px; }
+  .doc-title { font-size: 18pt; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 4px; }
+  .doc-sub { font-size: 10pt; color: var(--text2); }
 
-        /* HERO */
-        .hero{padding:10rem 0 5rem}
-        .hero h1{font-size:clamp(2rem,4.8vw,3rem);margin-bottom:.6rem;max-width:560px}
-        .hero h1 em{font-style:italic}
-        .hero .identity{font-size:.82rem;color:var(--gold);letter-spacing:.06em;margin-bottom:2.2rem;font-weight:500}
-        .hero p{color:var(--gray);font-size:.95rem;margin-bottom:1.2rem;max-width:520px}
-        .hero .email{margin-top:2.5rem;font-size:.88rem}
-        .hero .email a{color:var(--gold);border-bottom:1px solid rgba(200,170,80,.3)}
+  /* ── KPI Row ── */
+  .kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 8px; }
+  .kpi {
+    text-align: center; padding: 16px 12px;
+    background: var(--surface); border-radius: 4px;
+  }
+  .kpi-val { font-family: var(--m); font-size: 14pt; font-weight: 700; margin-bottom: 4px; }
+  .kpi-label { font-size: 8.5pt; color: var(--text2); margin-bottom: 2px; }
+  .kpi-sub { font-size: 7.5pt; color: var(--muted); font-style: italic; }
+  .kpi-aside {
+    font-family: var(--m); font-size: 7.5pt; color: var(--muted);
+    text-align: right; margin-bottom: 32px;
+  }
+  .kpi-aside a { color: var(--light); }
 
-        .divider{border:none;border-top:1px solid var(--rule);margin:0}
+  /* ── Mia Chat ── */
+  .mia { border: 1px solid var(--border2); border-radius: 4px; margin-bottom: 32px; overflow: hidden; }
+  .mia-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; cursor: pointer; transition: background .12s;
+  }
+  .mia-header:hover { background: var(--surface); }
+  .mia-av {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--surface); border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7.5pt; font-weight: 600; color: var(--accent); flex-shrink: 0;
+  }
+  .mia-greeting { flex: 1; font-size: 9pt; color: var(--text2); }
+  .mia-greeting strong { color: var(--text); font-weight: 500; }
+  .mia-toggle { font-size: 7pt; color: var(--light); font-family: var(--m); }
+  .mia-body { display: none; border-top: 1px solid var(--border2); }
+  .mia-body.open { display: block; }
+  .mia-messages { padding: 12px 16px; max-height: 240px; overflow-y: auto; }
+  .mia-msg { margin-bottom: 8px; display: flex; gap: 8px; align-items: flex-start; }
+  .mia-msg-a {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--surface); border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6.5pt; font-weight: 600; color: var(--accent); flex-shrink: 0; margin-top: 2px;
+  }
+  .mia-msg-t {
+    font-size: 8.5pt; color: var(--text2); line-height: 1.5;
+    background: var(--surface); border-radius: 0 6px 6px 6px; padding: 8px 12px; max-width: 85%;
+  }
+  .mia-msg-t strong { color: var(--text); }
+  .mia-msg.user { flex-direction: row-reverse; }
+  .mia-msg.user .mia-msg-t { background: rgba(157,127,59,.06); border-radius: 6px 0 6px 6px; color: var(--text); }
+  .mia-msg.user .mia-msg-a { display: none; }
+  .mia-input-row { display: flex; gap: 8px; padding: 8px 16px; border-top: 1px solid var(--border2); background: var(--surface); }
+  .mia-input {
+    flex: 1; font-family: var(--f); font-size: 8.5pt;
+    border: 1px solid var(--border2); border-radius: 4px;
+    padding: 7px 12px; background: #fff; outline: none; color: var(--text);
+  }
+  .mia-input:focus { border-color: var(--accent); }
+  .mia-input::placeholder { color: var(--light); }
+  .mia-send {
+    background: var(--accent); color: #fff; border: none; border-radius: 4px;
+    padding: 7px 16px; font-family: var(--f); font-size: 8pt; font-weight: 500; cursor: pointer;
+  }
+  .mia-send:hover { background: #b8972e; }
+  .mia-chips { display: flex; gap: 6px; flex-wrap: wrap; padding: 8px 16px; border-top: 1px solid var(--border2); }
+  .mia-chip {
+    font-family: var(--m); font-size: 7pt; color: var(--muted);
+    padding: 4px 10px; border: 1px solid var(--border2); border-radius: 12px;
+    cursor: pointer; transition: all .12s;
+  }
+  .mia-chip:hover { color: var(--text2); border-color: var(--accent); background: rgba(157,127,59,.04); }
+  .mia-badge { font-family: var(--m); font-size: 6.5pt; color: var(--light); padding: 4px 16px; text-align: center; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .mia-msg { animation: fadeIn .3s ease; }
 
-        /* SECTIONS */
-        section{padding:5rem 0}
-        .tag{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2.5rem;display:block}
-        section h2{font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:1.8rem}
-        section p{color:var(--gray);font-size:.93rem;margin-bottom:1.4rem}
-        section p:last-of-type{margin-bottom:0}
-        section strong{color:var(--white);font-weight:500}
+  /* ── Section Labels ── */
+  .sec-label {
+    font-size: 8pt; font-weight: 600; text-transform: uppercase;
+    letter-spacing: .08em; color: var(--muted); margin-bottom: 12px;
+  }
 
-        /* OFFERINGS */
-        .offering{padding:2rem 0;border-top:1px solid var(--rule)}
-        .offering:last-of-type{border-bottom:1px solid var(--rule)}
-        .offering h3{font-size:1.25rem;font-weight:400;margin-bottom:.6rem}
-        .offering p{font-size:.88rem;color:var(--gray);max-width:540px}
+  /* ── Featured Card (Daily Intel) ── */
+  .featured {
+    display: block; border: 1px solid var(--border2); border-radius: 4px;
+    padding: 24px; margin-bottom: 32px; transition: border-color .12s; color: inherit;
+  }
+  .featured:hover { border-color: var(--border); }
+  .featured-top { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .featured-title { font-size: 11pt; font-weight: 600; }
+  .featured-badge { font-family: var(--m); font-size: 7pt; color: var(--green); }
+  .featured-body { font-size: 9.5pt; color: var(--text2); margin-bottom: 8px; }
+  .featured-insights {
+    font-family: var(--m); font-size: 7.5pt; color: var(--muted);
+    line-height: 1.8; margin-bottom: 12px;
+  }
+  .featured-stats {
+    display: flex; gap: 8px; font-family: var(--m); font-size: 7.5pt;
+    color: var(--muted); margin-bottom: 12px;
+  }
+  .featured-stats .sep { color: var(--border); }
+  .featured-footer { display: flex; align-items: center; justify-content: space-between; }
+  .featured-meta { font-family: var(--m); font-size: 7pt; color: var(--light); }
+  .featured-cta { font-size: 9.5pt; font-weight: 600; color: var(--accent); }
 
-        /* CONTENT CLUSTERS */
-        .clusters{display:grid;gap:2.5rem;margin-top:3rem}
-        .cluster{background:var(--card-bg);border:1px solid var(--rule);padding:2rem;border-radius:8px;transition:all .4s ease}
-        .cluster:hover{border-color:rgba(200,170,80,.2);transform:translateY(-2px)}
-        .cluster-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
-        .cluster-icon{font-size:2rem;line-height:1}
-        .cluster-title{font-size:1.4rem;font-weight:400;color:var(--white);margin:0}
-        .cluster-desc{font-size:.85rem;color:var(--gray);margin-bottom:1.8rem;line-height:1.6}
-        .cluster-articles{display:grid;gap:1.2rem}
-        .article{padding-bottom:1.2rem;border-bottom:1px solid var(--rule)}
-        .article:last-child{border-bottom:none;padding-bottom:0}
-        .article-title{font-size:1.05rem;font-weight:400;margin-bottom:.3rem;line-height:1.4}
-        .article-title a{color:var(--white);border:none;transition:color .3s}
-        .article-title a:hover{color:var(--gold)}
-        .article-meta{font-size:.75rem;color:var(--gray2);margin-bottom:.5rem;font-family:'JetBrains Mono',monospace}
-        .article-desc{font-size:.84rem;color:var(--gray);line-height:1.5}
+  /* ── Analysis Tiles (2×2 Grid) ── */
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 8px; }
+  .tile {
+    display: flex; flex-direction: column;
+    border: 1px solid var(--border2); border-radius: 4px;
+    padding: 20px; transition: border-color .12s; color: inherit;
+  }
+  .tile:hover { border-color: var(--border); }
+  .tile-title { font-size: 10pt; font-weight: 600; margin-bottom: 4px; }
+  .tile-desc { font-size: 8.5pt; color: var(--text2); line-height: 1.55; flex: 1; margin-bottom: 12px; }
+  .tile-row {
+    display: flex; gap: 6px; flex-wrap: wrap; align-items: baseline;
+    font-family: var(--m); font-size: 7pt; color: var(--muted); margin-bottom: 4px;
+  }
+  .tile-row .sep { color: var(--border2); }
+  .tile-potential {
+    font-family: var(--m); font-size: 7pt; color: var(--muted);
+    min-height: 16px; margin-bottom: 4px;
+  }
+  .tile-cta { font-size: 9pt; font-weight: 600; color: var(--accent); margin-top: 8px; }
+  .tiles-aside {
+    font-family: var(--m); font-size: 6.5pt; color: var(--light);
+    text-align: right; margin-bottom: 32px;
+  }
+  .tiles-aside a { color: var(--light); }
 
-        /* CONTENT TYPES: Links, Quotes, Notes */
-        .content-type-tabs{display:flex;gap:.5rem;margin-bottom:1.8rem;flex-wrap:wrap}
-        .type-tab{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.08em;padding:.4rem .8rem;border:1px solid var(--rule);border-radius:3px;color:var(--gray2);cursor:default;transition:all .3s}
-        .type-tab.active{border-color:rgba(200,170,80,.3);color:var(--gold);background:rgba(200,170,80,.05)}
+  /* ── Projects Section ── */
+  .proj-empty {
+    text-align: center; padding: 24px; border: 1px dashed var(--border2);
+    border-radius: 4px; margin-bottom: 8px;
+  }
+  .proj-empty-text { font-size: 8.5pt; color: var(--muted); margin-bottom: 8px; }
+  .proj-actions { display: flex; gap: 16px; justify-content: center; }
+  .proj-action {
+    font-size: 8pt; color: var(--muted); display: inline-flex;
+    align-items: center; gap: 4px; transition: color .12s;
+  }
+  .proj-action:hover { color: var(--text2); }
+  .proj-action svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .proj-aside {
+    font-family: var(--m); font-size: 6.5pt; color: var(--light);
+    text-align: right; margin-bottom: 32px;
+  }
 
-        .link-item{padding:1rem 0;border-bottom:1px solid var(--rule)}
-        .link-item:last-child{border-bottom:none}
-        .link-source{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--gold);letter-spacing:.04em;margin-bottom:.3rem}
-        .link-title{font-size:.95rem;font-weight:400;margin-bottom:.4rem}
-        .link-title a{color:var(--white);border:none}
-        .link-title a:hover{color:var(--gold)}
-        .link-comment{font-size:.82rem;color:var(--gray);line-height:1.55;font-style:italic}
+  /* ── Auf einen Blick (Visual Cards) ── */
+  .glance { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px; }
+  .glance-card {
+    border: 1px solid var(--border2); border-radius: 4px; padding: 20px;
+    transition: border-color .12s;
+  }
+  .glance-card:hover { border-color: var(--border); }
+  .glance-title { font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 12px; }
+  /* Timeline */
+  .tl { position: relative; padding-left: 20px; }
+  .tl::before { content: ''; position: absolute; left: 5px; top: 4px; bottom: 4px; width: 1px; background: var(--border2); }
+  .tl-item { position: relative; margin-bottom: 14px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: -20px; top: 3px;
+    width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--border);
+    background: #fff;
+  }
+  .tl-dot.urgent { border-color: var(--red); background: rgba(192,57,43,.08); }
+  .tl-dot.soon { border-color: var(--amber); background: rgba(180,83,9,.06); }
+  .tl-dot.normal { border-color: var(--border); }
+  .tl-date { font-family: var(--m); font-size: 7pt; color: var(--muted); margin-bottom: 1px; }
+  .tl-label { font-size: 8.5pt; font-weight: 500; color: var(--text); margin-bottom: 1px; }
+  .tl-amount { font-family: var(--m); font-size: 7.5pt; color: var(--muted); }
+  /* Comparison bars */
+  .cmp-item { margin-bottom: 10px; }
+  .cmp-item:last-child { margin-bottom: 0; }
+  .cmp-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
+  .cmp-name { font-size: 8.5pt; color: var(--text2); }
+  .cmp-val { font-family: var(--m); font-size: 7.5pt; color: var(--muted); }
+  .cmp-bar { height: 6px; background: var(--border2); border-radius: 3px; overflow: hidden; }
+  .cmp-fill { height: 100%; border-radius: 3px; transition: width .6s ease; }
+  .cmp-fill.low { background: var(--red); opacity: .65; }
+  .cmp-fill.mid { background: var(--amber); opacity: .6; }
+  .cmp-fill.high { background: var(--green); opacity: .55; }
+  .cmp-fill.you { background: var(--accent); }
+  @media (max-width: 768px) { .glance { grid-template-columns: 1fr; } }
 
-        .quote-item{padding:1.2rem 0 1.2rem 1.2rem;border-left:2px solid rgba(200,170,80,.2);margin:1rem 0}
-        .quote-text{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.05rem;color:var(--white);line-height:1.5;font-style:italic;margin-bottom:.5rem}
-        .quote-attr{font-size:.75rem;color:var(--gray2);font-family:'JetBrains Mono',monospace}
-        .quote-comment{font-size:.82rem;color:var(--gray);margin-top:.5rem;line-height:1.5}
+  /* ── Footer ── */
+  .ftr {
+    margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
+    display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;
+    font-family: var(--m); font-size: 7pt; color: var(--light);
+  }
+  .ftr a { color: var(--light); }
 
-        .note-item{padding:.8rem 0;border-bottom:1px solid var(--rule)}
-        .note-item:last-child{border-bottom:none}
-        .note-date{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--gray2);margin-bottom:.3rem}
-        .note-text{font-size:.88rem;color:var(--gray);line-height:1.55}
-        .note-text strong{color:var(--white)}
-
-        /* NEWSLETTER CTA */
-        .newsletter-cta{background:linear-gradient(135deg,rgba(200,170,80,.08),rgba(200,170,80,.02));border:1px solid rgba(200,170,80,.15);padding:3rem 2.5rem;border-radius:8px;text-align:center;margin:4rem 0}
-        .newsletter-cta h3{font-size:1.6rem;margin-bottom:.8rem;color:var(--white)}
-        .newsletter-cta p{font-size:.9rem;color:var(--gray);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
-        .newsletter-cta a{display:inline-block;padding:.9rem 2.5rem;background:var(--gold);color:var(--bg);font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.06em;border-radius:4px;border:none;font-weight:500;transition:all .3s}
-        .newsletter-cta a:hover{background:#d4b760;transform:translateY(-1px)}
-
-        /* ABOUT */
-        .about-wrap{display:grid;grid-template-columns:160px 1fr;gap:2.5rem;align-items:start}
-        .photo{width:100%;aspect-ratio:1;background:#111116;overflow:hidden;border-radius:4px}
-        .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(30%) contrast(1.05);transition:filter .5s}
-        .photo:hover img{filter:grayscale(0%) contrast(1)}
-        .bio h2{margin-bottom:.4rem}
-        .bio .role{font-size:.8rem;color:var(--gold);letter-spacing:.04em;font-weight:500;margin-bottom:1.5rem;display:block}
-        .bio p{font-size:.9rem;color:var(--gray);margin-bottom:1rem}
-        .bio ul{list-style:none;margin:1.2rem 0 0;padding:0}
-        .bio ul li{font-size:.85rem;color:var(--gray);padding:.25rem 0 .25rem 1rem;position:relative}
-        .bio ul li::before{content:'–';position:absolute;left:0;color:var(--gray2)}
-        .links{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1.8rem}
-        .links a{font-size:.82rem;color:var(--gray2);border-bottom:1px solid rgba(92,92,102,.4)}
-        .links a:hover{color:var(--gold);border-color:var(--gold)}
-        .contact{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule);font-size:.85rem;line-height:2.2;color:var(--gray2)}
-        .contact a{color:var(--gray);border:none}
-        .contact a:hover{color:var(--gold)}
-
-        /* FOOTER */
-        footer{padding:2rem 0;text-align:center;font-size:.72rem;color:var(--gray2);letter-spacing:.04em}
-
-        /* ANIMATION */
-        .fade{opacity:0;transform:translateY(16px);transition:opacity .8s ease,transform .8s ease}
-        .fade.in{opacity:1;transform:none}
-
-        /* RESPONSIVE */
-        @media(max-width:600px){
-            header nav{display:none}
-            .hero{padding:7rem 0 4rem}
-            section{padding:3.5rem 0}
-            .about-wrap{grid-template-columns:1fr}
-            .photo{max-width:140px}
-            .cluster{padding:1.5rem}
-            .newsletter-cta{padding:2rem 1.5rem}
-        }
-    </style>
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .page { padding: 24px 20px 40px; }
+    .tiles, .kpi-row { grid-template-columns: 1fr; }
+    .portal-center { display: none; }
+    .proj-actions { flex-direction: column; align-items: center; }
+    .ftr { flex-direction: column; align-items: center; }
+  }
+  @media print {
+    .portal-hdr, .mia, .rag, .proj-empty { display: none; }
+    body { font-size: 9.5pt; }
+    .page { padding: 0; max-width: 100%; }
+    @page { margin: 20mm 18mm; size: A4; }
+  }
+</style>
 </head>
 <body>
+<div class="page">
 
-<header>
-    <div class="w">
-        <a href="#" class="logo n">AINARY</a>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#work">Work</a>
-            <a href="#insights">Insights</a>
-            <a href="#ask-ai">Ask AI</a>
-            <a href="#about">About</a>
-            <a href="index-de.html" style="color:var(--gold)">🇩🇪 DE</a>
-        </nav>
+  <!-- Portal Header -->
+  <div class="portal-hdr">
+    <div class="portal-left">
+      <a href="index.html" style="display:flex;align-items:center;gap:8px"><span class="brand-dot"></span><span class="brand-name">Ainary</span></a>
+      <span class="portal-sep">·</span>
+      <span style="color:var(--light)">Abmelden</span>
     </div>
-</header>
+    <div class="portal-center">
+      <span style="display:flex;align-items:center;gap:3px"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Glashütte</span>
+      <span>☁ 3°C</span>
+      <span style="font-family:var(--m)">Do, 20.02.2026</span>
+    </div>
+    <div class="portal-right">
+      <a href="verwalten.html" class="portal-trial">13 Tage</a>
+      <a href="verwalten.html" class="portal-credits">5 Credits →</a>
+    </div>
+  </div>
 
-<div class="hero fade">
-    <div class="w">
-        <h1>I build AI that replaces <em>workflows</em>, not&nbsp;tasks.</h1>
-        <p class="identity">AI Consultant · Builder · VC Lab Fellow</p>
-        <p>Strategy and deployment for companies where <a href="#perspective" class="n" style="color:var(--gray);border-bottom:1px solid var(--gray2)">AI isn't a feature — it's the architecture</a>. Manufacturing. Legal. Enterprise operations.</p>
-        <p>Five years building AI products. <span class="m">€5.5M+</span> raised. Shipped to <a href="https://www.bmw.com" target="_blank" rel="noopener" class="n" style="color:var(--gray);border-bottom:1px solid var(--gray2)">BMW</a>, <a href="https://www.siemens.com" target="_blank" rel="noopener" class="n" style="color:var(--gray);border-bottom:1px solid var(--gray2)">Siemens</a>, and <a href="https://www.bosch.com" target="_blank" rel="noopener" class="n" style="color:var(--gray);border-bottom:1px solid var(--gray2)">Bosch</a>. Now working at the intersection of <a href="#services" class="n" style="color:var(--gray);border-bottom:1px solid var(--gray2)">applied AI</a> and <a href="https://www.decilegroup.com" target="_blank" rel="noopener" class="n" style="color:var(--gray);border-bottom:1px solid var(--gray2)">venture capital</a>.</p>
-        <div class="email">
-            <a href="mailto:f.ziesche.us@gmail.com">f.ziesche.us@gmail.com</a>
+  <!-- Document Header -->
+  <div class="doc-hdr">
+    <div class="doc-title">Guten Morgen, Herr Gleißberg.</div>
+    <div class="doc-sub">Ihre Wochen-Übersicht für Glashütte.</div>
+  </div>
+
+  <!-- KPI Row -->
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-val">~93 Std.</div>
+      <div class="kpi-label">Ihr Aufwand ohne Ainary</div>
+      <div class="kpi-sub">5 Analysen · 79 Quellen</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">69%</div>
+      <div class="kpi-label">Confidence</div>
+      <div class="kpi-sub">Ø über alle Analysen</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">20%</div>
+      <div class="kpi-label">Ihr Anteil</div>
+      <div class="kpi-sub">Prüfen, entscheiden, handeln</div>
+    </div>
+  </div>
+  <!-- Evidence Chain KPIs -->
+  <div class="kpi-row" style="margin-bottom:8px">
+    <div class="kpi" style="background:rgba(192,57,43,.04)">
+      <div class="kpi-val" style="color:#c0392b">1,36 Mio.</div>
+      <div class="kpi-label">Gehen bis 2030 in Rente</div>
+      <div class="kpi-sub">dbb Beamtenbund 2023</div>
+    </div>
+    <div class="kpi" style="background:rgba(192,57,43,.04)">
+      <div class="kpi-val" style="color:#c0392b">31%</div>
+      <div class="kpi-label">Nichtbesetzungsquote</div>
+      <div class="kpi-sub">Demografieportal</div>
+    </div>
+    <div class="kpi" style="background:rgba(192,57,43,.04)">
+      <div class="kpi-val" style="color:#c0392b">40%</div>
+      <div class="kpi-label">Routinearbeit</div>
+      <div class="kpi-sub">KGSt / Fraunhofer FOKUS 2024</div>
+    </div>
+  </div>
+  <div class="kpi-aside">Identifiziertes Potenzial: €215k–580k · <a href="methodik.html">Methodik</a></div>
+
+  <!-- Mia -->
+  <div class="mia" id="mia">
+    <div class="mia-header" onclick="toggleMia()">
+      <div class="mia-av">M</div>
+      <div class="mia-greeting"><strong>Mia:</strong> Guten Morgen, Herr Gleißberg. Kann ich Ihnen heute weiterhelfen?</div>
+      <span class="mia-toggle" id="mia-toggle-label">↓</span>
+    </div>
+    <div class="mia-body" id="mia-body">
+      <div class="mia-messages" id="mia-messages">
+        <div class="mia-msg"><div class="mia-msg-a">M</div><div class="mia-msg-t">Ihr <strong>Daily Intel</strong> ist fertig — 3 Handlungsempfehlungen warten. Fragen Sie mich, oder sagen Sie <strong>„Projektvorschlag"</strong>.</div></div>
+      </div>
+      <div class="mia-input-row">
+        <input class="mia-input" id="mia-input" type="text" placeholder="Frage, Projektauftrag, oder Dokument hochladen..." onkeydown="if(event.key==='Enter')sendMia()">
+        <button class="mia-send" onclick="sendMia()">Senden</button>
+      </div>
+      <div class="mia-chips">
+        <span class="mia-chip" onclick="sendChip('Fördermittel')">Fördermittel</span>
+        <span class="mia-chip" onclick="sendChip('Windkraft')">Windkraft</span>
+        <span class="mia-chip" onclick="sendChip('Digitalisierung')">Digitalisierung</span>
+        <span class="mia-chip" onclick="sendChip('Projektvorschlag')">Projektvorschlag</span>
+        <span class="mia-chip" onclick="sendChip('Uhrenindustrie')">Uhrenindustrie</span>
+      </div>
+      <div class="mia-badge">Mia ist eine KI-Assistentin · Antworten basieren auf Ihren Reports</div>
+    </div>
+  </div>
+
+  <!-- Auf einen Blick -->
+  <div class="sec-label">Auf einen Blick</div>
+  <div class="glance">
+    <div class="glance-card">
+      <div class="glance-title">Nächste Fristen</div>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-dot urgent"></div>
+          <div class="tl-date">28.02.2026 · in 8 Tagen</div>
+          <div class="tl-label">Breitband-Ausbau Müglitztal</div>
+          <div class="tl-amount">Glasfaser-Förderung · bis €200k</div>
         </div>
+        <div class="tl-item">
+          <div class="tl-dot soon"></div>
+          <div class="tl-date">15.04.2026</div>
+          <div class="tl-label">Smarte Regionen Sachsen</div>
+          <div class="tl-amount">Potenzialcheck · bis €50k</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot normal"></div>
+          <div class="tl-date">31.08.2026</div>
+          <div class="tl-label">Kulturraum-Förderrichtlinie</div>
+          <div class="tl-amount">Neue Richtlinie · bis €150k</div>
+        </div>
+      </div>
+      <div style="font-family:var(--m);font-size:7.5pt;color:#c0392b;font-weight:500;margin-top:10px;padding-top:8px;border-top:1px solid var(--border2)">Summe: bis €400k — Mia hat sie gefunden.</div>
     </div>
+    <div class="glance-card">
+      <div class="glance-title">Digitale Services · Benchmark</div>
+      <div class="cmp-item">
+        <div class="cmp-top"><span class="cmp-name">Dippoldiswalde</span><span class="cmp-val">5/6</span></div>
+        <div class="cmp-bar"><div class="cmp-fill high" style="width:83%"></div></div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-top"><span class="cmp-name">Freital</span><span class="cmp-val">4/6</span></div>
+        <div class="cmp-bar"><div class="cmp-fill mid" style="width:67%"></div></div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-top"><span class="cmp-name">Altenberg</span><span class="cmp-val">3/6</span></div>
+        <div class="cmp-bar"><div class="cmp-fill mid" style="width:50%"></div></div>
+      </div>
+      <div class="cmp-item">
+        <div class="cmp-top"><span class="cmp-name" style="font-weight:600;color:var(--text)">Glashütte</span><span class="cmp-val" style="color:var(--accent)">1/6</span></div>
+        <div class="cmp-bar"><div class="cmp-fill you" style="width:17%"></div></div>
+      </div>
+      <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:8px">Quick Win: gleicher Anbieter wie Dippoldiswalde · 2–4 Wo. · <a href="analyse-digitalisierung.html" style="color:var(--accent)">Details →</a></div>
+    </div>
+    <!-- Bürgerthemen -->
+    <div class="glance-card">
+      <div class="glance-title">Bürgerthemen · Top 3</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div>
+          <div style="font-size:7pt;font-weight:600;color:#2d8a4e;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Positiv</div>
+          <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Kita &amp; Schulen</span><span class="cmp-val" style="color:#2d8a4e">82%</span></div><div class="cmp-bar"><div class="cmp-fill high" style="width:82%"></div></div></div>
+          <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Ehrenamt</span><span class="cmp-val" style="color:#2d8a4e">76%</span></div><div class="cmp-bar"><div class="cmp-fill high" style="width:76%"></div></div></div>
+          <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Sicherheit</span><span class="cmp-val" style="color:#2d8a4e">71%</span></div><div class="cmp-bar"><div class="cmp-fill high" style="width:71%"></div></div></div>
+        </div>
+        <div>
+          <div style="font-size:7pt;font-weight:600;color:#c0392b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Negativ</div>
+          <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Verkehr &amp; ÖPNV</span><span class="cmp-val" style="color:#c0392b">74%</span></div><div class="cmp-bar"><div class="cmp-fill low" style="width:74%"></div></div></div>
+          <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Bürokratie</span><span class="cmp-val" style="color:#c0392b">68%</span></div><div class="cmp-bar"><div class="cmp-fill low" style="width:68%"></div></div></div>
+          <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Breitband</span><span class="cmp-val" style="color:#c0392b">61%</span></div><div class="cmp-bar"><div class="cmp-fill low" style="width:61%"></div></div></div>
+        </div>
+      </div>
+      <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:8px">Ainary Stimmungsanalyse · Feb 2026</div>
+    </div>
+    <!-- Bundesland Benchmark -->
+    <div class="glance-card">
+      <div class="glance-title">Bundesland · Bitkom Länderindex 2024</div>
+      <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Hamburg</span><span class="cmp-val" style="color:#2d8a4e">73,5</span></div><div class="cmp-bar"><div class="cmp-fill high" style="width:73.5%"></div></div></div>
+      <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Berlin</span><span class="cmp-val">71,5</span></div><div class="cmp-bar"><div class="cmp-fill high" style="width:71.5%;opacity:.4"></div></div></div>
+      <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Bayern</span><span class="cmp-val">66,9</span></div><div class="cmp-bar"><div class="cmp-fill mid" style="width:66.9%"></div></div></div>
+      <div class="cmp-item"><div class="cmp-top"><span class="cmp-name" style="font-weight:600;color:var(--text)">Sachsen</span><span class="cmp-val" style="color:var(--accent);font-weight:600">59,5</span></div><div class="cmp-bar"><div class="cmp-fill you" style="width:59.5%"></div></div></div>
+      <div class="cmp-item"><div class="cmp-top"><span class="cmp-name">Thüringen</span><span class="cmp-val" style="color:#c0392b">49,6</span></div><div class="cmp-bar"><div class="cmp-fill low" style="width:49.6%"></div></div></div>
+      <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:8px">Platz 8/16 — Mittelfeld. Überdurchschnittlich bei digitaler Verwaltung.</div>
+    </div>
+  </div>
+
+  <!-- Aktuell -->
+  <div class="sec-label">Aktuell</div>
+
+  <a href="daily-intel-buergermeister.html" class="featured">
+    <div class="featured-top">
+      <span class="featured-title">Daily Intel — 20. Feb 2026</span>
+      <span class="featured-badge">Neu</span>
+    </div>
+    <div class="featured-body">12 Meldungen aus 8 Quellen. 3 Handlungsempfehlungen.</div>
+    <div class="featured-insights">Einblicke: Freistaat Sachsen stellt €153.800 für Ehrenamt bereit · Breitband-Ausbau Müglitztal: Frist 28.02. · Entsorgungskalender 2026 sorgt für Bürgerfragen · Windkraft-Petition erreicht 1.200 Unterschriften</div>
+    <div class="featured-stats">
+      <span>Ihr Aufwand: ~5–9 Std.</span>
+      <span class="sep">·</span>
+      <span>Einsparpotenzial €275–495</span>
+      <span class="sep">·</span>
+      <span>68% Confidence</span>
+      <span class="sep">·</span>
+      <span>Inkl. im Abo</span>
+    </div>
+    <div class="featured-footer">
+      <span class="featured-meta">3 min · 6 Seiten · 12 Quellen</span>
+      <span class="featured-cta">Lesen →</span>
+    </div>
+  </a>
+
+  <!-- Verfügbare Analysen -->
+  <div class="sec-label">Verfügbare Analysen</div>
+
+  <div class="tiles">
+    <a href="analyse-foerdermittel.html" class="tile">
+      <div class="tile-title">Fördermittel-Komplettscan</div>
+      <div class="tile-desc">11 Programme identifiziert, 3 mit Frist in 8 Wochen.</div>
+      <div class="tile-row"><span>5 Credits</span><span class="sep">·</span><span>23 Quellen</span><span class="sep">·</span><span>14 Seiten</span><span class="sep">·</span><span>78% Confidence</span></div>
+      <div class="tile-row"><span>~24–40 Std.</span><span class="sep">·</span><span>Einsparpotenzial €1.320–2.200</span></div>
+      <div class="tile-potential">Identifiziertes Potenzial: €200k–500k</div>
+      <div class="tile-cta">Lesen →</div>
+    </a>
+    <a href="analyse-digitalisierung.html" class="tile">
+      <div class="tile-title">Digitalisierungsstrategie</div>
+      <div class="tile-desc">Glashütte 1/6 Services vs. Dippoldiswalde 5/6. Quick Win in 4 Wochen möglich.</div>
+      <div class="tile-row"><span>4 Credits</span><span class="sep">·</span><span>18 Quellen</span><span class="sep">·</span><span>11 Seiten</span><span class="sep">·</span><span>75% Confidence</span></div>
+      <div class="tile-row"><span>~14–22 Std.</span><span class="sep">·</span><span>Einsparpotenzial €770–1.210</span></div>
+      <div class="tile-potential">Verknüpfte Förderung: €15k–80k</div>
+      <div class="tile-cta">Lesen →</div>
+    </a>
+    <a href="analyse-buergerstimmung.html" class="tile">
+      <div class="tile-title">Bürgerstimmung 90-Tage</div>
+      <div class="tile-desc">Windkraft dominiert 46% der Diskussion, 78% negativ. Handlungsbedarf.</div>
+      <div class="tile-row"><span>3 Credits</span><span class="sep">·</span><span>15 Quellen</span><span class="sep">·</span><span>9 Seiten</span><span class="sep">·</span><span>65% Confidence</span></div>
+      <div class="tile-row"><span>~18–30 Std.</span><span class="sep">·</span><span>Einsparpotenzial €990–1.650</span></div>
+      <div class="tile-potential"></div>
+      <div class="tile-cta">Lesen →</div>
+    </a>
+    <a href="analyse-uhrenindustrie.html" class="tile">
+      <div class="tile-title">Uhrenindustrie Marktbericht</div>
+      <div class="tile-desc">Markt stabil (+3.2%). Kein Gegenwind. Leichte Sorge Mittelsegment.</div>
+      <div class="tile-row"><span>2 Credits</span><span class="sep">·</span><span>11 Quellen</span><span class="sep">·</span><span>8 Seiten</span><span class="sep">·</span><span>60% Confidence</span></div>
+      <div class="tile-row"><span>~9–15 Std.</span><span class="sep">·</span><span>Einsparpotenzial €495–825</span></div>
+      <div class="tile-potential"></div>
+      <div class="tile-cta">Lesen →</div>
+    </a>
+  </div>
+  <div class="tiles-aside">Basis: €55/Std. TVöD E11 · Range = Confidence · <a href="methodik.html">Methodik</a></div>
+
+  <!-- Eigene Analysen -->
+  <div class="sec-label">Eigene Analysen & Projekte</div>
+  <div class="proj-empty">
+    <div class="proj-empty-text">Noch keine eigenen Projekte.</div>
+    <div class="proj-actions">
+      <a href="#mia" class="proj-action" onclick="openMiaWith('Ich möchte ein eigenes Projekt anfragen.')"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Projekt anfragen</a>
+      <a href="#mia" class="proj-action" onclick="openMiaWith('Welche Projekte würdest du mir vorschlagen?')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Projektvorschlag</a>
+      <a href="#mia" class="proj-action" onclick="openMiaWith('Ich möchte ein Dokument hochladen.')"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Dokument hochladen</a>
+    </div>
+    <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:8px">Beispiele: Wahleinblicke 2026 · Tourismuskonzept · Fachkräfte-Kampagne · Energie-Audit · Gemeinderatsprotokolle</div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="ftr">
+    <span>© 2026 Ainary</span><span>·</span>
+    <a href="methodik.html">Methodik</a><span>·</span>
+    <a href="https://ainaryventures.com/de/privacy.html" target="_blank">Datenschutz</a><span>·</span>
+    <span>Verschlüsselt</span>
+  </footer>
+
 </div>
 
-<hr class="divider">
-
-<section id="services" class="fade">
-    <div class="w">
-        <span class="tag">Services</span>
-        <div class="offering">
-            <h3>🏭 Manufacturing & Industrial</h3>
-            <p>AI-powered <a href="https://cnc-planer.de" target="_blank" rel="noopener">cost calculation</a>, automated quoting (<span class="m">80% faster</span>), quality documentation, predictive maintenance, and <a href="https://en.wikipedia.org/wiki/Numerical_control" target="_blank" rel="noopener">CNC</a> process optimization. Knowledge transfer systems that capture what your master craftsman knows — before they retire.</p>
-        </div>
-        <div class="offering">
-            <h3>📰 Media & Publishing</h3>
-            <p>AI-assisted content production, editorial research, automated reporting, trend analysis, and <a href="https://en.wikipedia.org/wiki/Search_engine_optimization" target="_blank" rel="noopener">SEO</a> optimization. From pilot columns to full editorial AI infrastructure — your journalists write better stories, faster.</p>
-        </div>
-        <div class="offering">
-            <h3>⚖️ Legal & Compliance</h3>
-            <p><a href="https://en.wikipedia.org/wiki/Retrieval-augmented_generation" target="_blank" rel="noopener">RAG systems</a> with <span class="m">&lt;0.2%</span> hallucination rates. Contract analysis, regulatory monitoring, risk detection. <a href="#insights">Multi-agent architecture</a>: Questioner, Researcher, Validator, Reporter — four agents that cross-check each other.</p>
-        </div>
-        <div class="offering">
-            <h3>📧 Office & Operations (any industry)</h3>
-            <p>Email triage (<span class="m">40% time saved</span>), automated reporting from ERP/Excel, market monitoring, customer communication bots, meeting protocols, and AI-powered briefings. The <span class="m">€61B/year</span> German bureaucracy problem — solved one workflow at a time.</p>
-        </div>
-        <div class="offering">
-            <h3>🎓 Workshops & Training</h3>
-            <p>Hands-on <a href="https://www.ihk.de" target="_blank" rel="noopener">IHK</a>/<a href="https://www.zdh.de" target="_blank" rel="noopener">HWK</a>-compatible AI workshops for SMEs. Live demos, not PowerPoint. Your team leaves with tools they can use Monday morning. Up to <span class="m">60% subsidized</span> through <a href="https://www.sab.sachsen.de" target="_blank" rel="noopener">state funding programs</a>.</p>
-        </div>
-        <div class="offering">
-            <h3>💡 Advisory & Venture</h3>
-            <p>Applied AI through the lens of someone who ships it. <a href="https://florianziesche.substack.com" target="_blank" rel="noopener">Essays on Substack</a>. Founder advisory. <a href="https://www.decilegroup.com" target="_blank" rel="noopener">VC Lab Fellow</a> — I evaluate AI startups and write about what separates real from hype.</p>
-        </div>
-    </div>
-</section>
-
-<hr class="divider">
-
-<section id="work" class="fade">
-    <div class="w">
-        <span class="tag">Work</span>
-        <div class="offering">
-            <h3><a href="https://36zerovision.com" target="_blank" rel="noopener" class="n" style="color:var(--white)">36ZERO Vision</a> — Scaling AI to Automotive</h3>
-            <p>Cloud <a href="https://en.wikipedia.org/wiki/Computer_vision" target="_blank" rel="noopener">computer vision</a> for quality inspection. Clients: <strong><a href="https://www.bmw.com" target="_blank" rel="noopener" class="n" style="color:var(--white)">BMW</a>, <a href="https://www.siemens.com" target="_blank" rel="noopener" class="n" style="color:var(--white)">Siemens</a>, <a href="https://www.bosch.com" target="_blank" rel="noopener" class="n" style="color:var(--white)">Bosch</a>, <a href="https://www.magna.com" target="_blank" rel="noopener" class="n" style="color:var(--white)">Magna</a></strong>. Grew total contract value <span class="m">200%+</span> in one year. Raised <span class="m">€5.5M+</span>. Managed P&L in a 150-person organization.</p>
-        </div>
-        <div class="offering">
-            <h3><a href="https://cnc-planer.de" target="_blank" rel="noopener" class="n" style="color:var(--white)">CNC Planner Pro</a> — Manufacturing Intelligence</h3>
-            <p><span class="m">6,100+</span> lines of code. Cost calculator for <a href="https://en.wikipedia.org/wiki/Numerical_control" target="_blank" rel="noopener">CNC manufacturing</a> — validated against real ERP data. Generates quotes, time calculations, and process recommendations in seconds. <a href="https://cnc-planer.de" target="_blank" rel="noopener">cnc-planer.de</a></p>
-        </div>
-        <div class="offering">
-            <h3>Legal AI — Accuracy Where It Matters</h3>
-            <p><a href="https://en.wikipedia.org/wiki/Multi-agent_system" target="_blank" rel="noopener">Multi-agent system</a> for legal research. Four agents: Questioner, Researcher, Validator, Reporter. Hallucination rate below <span class="m">0.2%</span>. Built with <a href="https://www.anthropic.com" target="_blank" rel="noopener">Claude</a>, <a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener">FastAPI</a>, and <a href="https://www.trychroma.com" target="_blank" rel="noopener">ChromaDB</a>. For high-stakes environments where "close enough" isn't.</p>
-        </div>
-        <div class="offering">
-            <h3><a href="#insights" class="n" style="color:var(--white)">The Evolution Experiment</a></h3>
-            <p><span class="m">84</span> AI agents designing their own improvement protocol. Weekly experiments producing novel frameworks for <a href="https://en.wikipedia.org/wiki/Human%E2%80%93computer_interaction" target="_blank" rel="noopener">human-AI collaboration</a>. Documented publicly. <a href="#insights">Read the series →</a></p>
-        </div>
-    </div>
-</section>
-
-<hr class="divider">
-
-<section id="insights" class="fade">
-    <div class="w">
-        <span class="tag">Intelligence Hub</span>
-        <h2>Dispatches from the frontier of human-AI collaboration</h2>
-        <p>Original research, experiments, and field notes from building AI systems that actually work.</p>
-
-        <div class="newsletter-cta">
-            <h3>The Ainary Brief</h3>
-            <p>Weekly AI intelligence — trends, frameworks, and experiments you won't find anywhere else. No fluff. Pure signal.</p>
-            <a href="https://florianziesche.substack.com" target="_blank" rel="noopener">Subscribe to the Brief →</a>
-        </div>
-
-        <div class="clusters">
-            <!-- AI Intelligence Cluster -->
-            <div class="cluster">
-                <div class="cluster-header">
-                    <div class="cluster-icon">🧠</div>
-                    <h3 class="cluster-title">AI Intelligence</h3>
-                </div>
-                <p class="cluster-desc">Market analysis, strategic trends, weekly briefs, and research on where AI is really heading — beyond the hype cycle.</p>
-                <div class="cluster-articles">
-                    <div class="article">
-                        <div class="article-meta">Jan 2026</div>
-                        <h4 class="article-title"><a href="blog.html">Sequoia Says AGI Is Here. They're Right—And They're Not.</a></h4>
-                        <p class="article-desc">The venture industry's most influential firm declared AGI has arrived. What they got right about capability, and what they missed about deployment. A breakdown of the AGI thesis and why the gap between lab and real-world matters more than benchmarks.</p>
-                    </div>
-                    <div class="article">
-                        <div class="article-meta">Jan 2026</div>
-                        <h4 class="article-title"><a href="blog.html">How Do You Create Urgency in Artificial Intelligence?</a></h4>
-                        <p class="article-desc">AI doesn't experience time. Every token exists in an eternal present. But load it with deadline pressure and outputs measurably change. Five methods for functional urgency in systems that can't feel it.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Human-AI Systems Cluster -->
-            <div class="cluster">
-                <div class="cluster-header">
-                    <div class="cluster-icon">🤖</div>
-                    <h3 class="cluster-title">Human-AI Systems</h3>
-                </div>
-                <p class="cluster-desc">Agent architecture, collaboration frameworks, evolution experiments, and the engineering of intelligent systems that work with humans.</p>
-                <div class="cluster-articles">
-                    <div class="article">
-                        <div class="article-meta">Feb 2026</div>
-                        <h4 class="article-title"><a href="blog.html">I Launched 100 AI Agents. They Disagreed on Everything.</a></h4>
-                        <p class="article-desc">What happens when you force 10 groups of AI agents to think using completely different cognitive strategies? 33,000 words of output. Six universal laws. Fifteen ideas that consensus would bury. The evolution experiment nobody asked for.</p>
-                    </div>
-                    <div class="article">
-                        <div class="article-meta">Jan 2026</div>
-                        <h4 class="article-title"><a href="blog.html">The Kintsugi Protocol: Why I Document Every AI Failure</a></h4>
-                        <p class="article-desc">In Japanese art, broken pottery is repaired with gold. What if we treated AI errors the same way? A framework for turning failures into your most valuable asset. How errors compound into intelligence when you stop hiding them.</p>
-                    </div>
-                    <div class="article">
-                        <div class="article-meta">Jan 2026</div>
-                        <h4 class="article-title"><a href="blog.html">The Red Team Inside My Head</a></h4>
-                        <p class="article-desc">Every AI wants to agree with you. Over time, this creates a devastating failure mode: the echo chamber of one. Here's the architectural solution — an internal adversary that keeps the system honest. Built-in dissent as a feature, not a bug.</p>
-                    </div>
-                    <div class="article">
-                        <div class="article-meta">Feb 2026</div>
-                        <h4 class="article-title"><a href="blog.html">Files = Intelligence: Why Your AI Setup Is Broken</a></h4>
-                        <p class="article-desc">The AI industry's $100 billion assumption: better models = better AI. 10 out of 10 agent groups concluded the opposite. The model isn't the bottleneck. The context is. How file architecture determines intelligence.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Manufacturing & AI Cluster -->
-            <div class="cluster">
-                <div class="cluster-header">
-                    <div class="cluster-icon">🏭</div>
-                    <h3 class="cluster-title">Manufacturing & AI</h3>
-                </div>
-                <p class="cluster-desc">CNC automation, Industrie 4.0, Mittelstand transformation, production planning, and applied AI in German manufacturing.</p>
-                <div class="cluster-articles">
-                    <div class="article">
-                        <div class="article-meta">Coming Soon</div>
-                        <h4 class="article-title"><a href="blog.html">The €61 Billion Bureaucracy Problem</a></h4>
-                        <p class="article-desc">How German manufacturers lose a full working day per week to administrative overhead. The AI systems that can recover it, and why most vendors get it wrong.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Legal AI Cluster -->
-            <div class="cluster">
-                <div class="cluster-header">
-                    <div class="cluster-icon">⚖️</div>
-                    <h3 class="cluster-title">Legal AI</h3>
-                </div>
-                <p class="cluster-desc">RAG systems, compliance automation, document intelligence, and high-stakes AI where hallucinations aren't an option.</p>
-                <div class="cluster-articles">
-                    <div class="article">
-                        <div class="article-meta">Coming Soon</div>
-                        <h4 class="article-title"><a href="blog.html">Below 0.2%: Building Legal AI That Doesn't Hallucinate</a></h4>
-                        <p class="article-desc">Four-agent architecture that cross-checks every claim. Why legal AI requires a fundamentally different approach than consumer chatbots, and how to build it.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Venture & Startups Cluster -->
-            <div class="cluster">
-                <div class="cluster-header">
-                    <div class="cluster-icon">🚀</div>
-                    <h3 class="cluster-title">Venture & Startups</h3>
-                </div>
-                <p class="cluster-desc">Fund thesis, founder insights, VC perspectives, and what I learned raising €5.5M+ and evaluating AI startups as a VC Lab Fellow.</p>
-                <div class="cluster-articles">
-                    <div class="article">
-                        <div class="article-meta">Coming Soon</div>
-                        <h4 class="article-title"><a href="blog.html">Why Operators Build Better AI Than Researchers</a></h4>
-                        <p class="article-desc">The moat isn't model performance. It's domain knowledge encoded into systems. Why the best AI companies are built by people who worked in the industries they're automating.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- FORMAT MIX: Links + Quotes + Notes (à la Willison) -->
-        <div style="margin-top:4rem">
-            <div class="content-type-tabs">
-                <span class="type-tab active">ENTRIES</span>
-                <span class="type-tab">LINKS</span>
-                <span class="type-tab">QUOTES</span>
-                <span class="type-tab">NOTES</span>
-            </div>
-
-            <h3 style="font-size:1.3rem;font-weight:300;margin-bottom:.5rem;color:var(--white)">Links & Commentary</h3>
-            <p style="font-size:.82rem;color:var(--gray2);margin-bottom:1.5rem">Curated reads with operator perspective.</p>
-
-            <div class="link-item">
-                <div class="link-source">SIMON WILLISON · Feb 7</div>
-                <h4 class="link-title"><a href="https://simonwillison.net/2026/Feb/7/software-factory/" target="_blank" rel="noopener">How StrongDM's AI team build serious software without even looking at the code</a></h4>
-                <p class="link-comment">A 3-person team where no human reviews code. They built "Digital Twins" of Okta, Jira, and Slack to test against. The Dark Factory level of AI adoption. If you're not spending $1,000/day on tokens per engineer, you have room for improvement. This is the future of software — and of manufacturing.</p>
-            </div>
-
-            <div class="link-item">
-                <div class="link-source">STRATECHERY · Feb 6</div>
-                <h4 class="link-title"><a href="https://stratechery.com/2026/saasmageddon-and-the-super-bowl/" target="_blank" rel="noopener">SaaSmageddon and the Super Bowl</a></h4>
-                <p class="link-comment">Vertical SaaS fell 43% this year. Not because it lacks moats — because it grows at 8% while AI-native infra hits 22%. Markets now price one thing: can you grow when AI makes your customers more efficient? The Mittelstand answer: yes, if AI drives revenue, not just cost cuts.</p>
-            </div>
-
-            <div class="link-item">
-                <div class="link-source">TAILWIND CSS · Jan 7</div>
-                <h4 class="link-title"><a href="https://simonwillison.net/2026/Jan/7/adam-wathan/" target="_blank" rel="noopener">Tailwind's revenue down 80% despite being more popular than ever</a></h4>
-                <p class="link-comment">Docs traffic -40% since 2023. AI answers questions instead of docs. 75% of the team laid off. The most brutal data point I've seen: popularity no longer correlates with revenue. If your business model depends on people reading documentation, AI already disrupted you.</p>
-            </div>
-
-            <div class="link-item">
-                <div class="link-source">MITCHELL HASHIMOTO · Feb 5</div>
-                <h4 class="link-title"><a href="https://mitchellh.com/writing/my-ai-adoption-journey" target="_blank" rel="noopener">My AI Adoption Journey</a></h4>
-                <p class="link-comment">"End-of-day agents": kick off agents in your last 30 minutes, let them work overnight. "Reproduce your own work": do it manually first, then have the agent recreate it. Unconventional but practical adoption advice from a master builder.</p>
-            </div>
-        </div>
-
-        <div style="margin-top:3rem">
-            <h3 style="font-size:1.3rem;font-weight:300;margin-bottom:1.5rem;color:var(--white)">Quotes That Hit</h3>
-
-            <div class="quote-item">
-                <p class="quote-text">"Nearly every software engineer I've talked to is experiencing some degree of mental health crisis. Not fear necessarily — the cognitive overload from living in an inflection point."</p>
-                <p class="quote-attr">— Tom Dale, Feb 2026</p>
-                <p class="quote-comment">This isn't about job loss. It's about identity dissolution. When your craft becomes commodity overnight, the crisis is existential. The operators who survive are the ones who shift from "I write code" to "I direct systems."</p>
-            </div>
-
-            <div class="quote-item">
-                <p class="quote-text">"When you see how people use Claude Code, Codex, etc. — it becomes clear that managing agents is really a management problem. Can you specify goals? Provide context? Divide tasks? Give feedback?"</p>
-                <p class="quote-attr">— Ethan Mollick, Jan 2026</p>
-                <p class="quote-comment">This is why former CEOs and COOs will build the best AI systems. Agent management IS management. The skills transfer 1:1.</p>
-            </div>
-
-            <div class="quote-item">
-                <p class="quote-text">"Real AI adoption needs domain context, AI tooling experience, AND old-fashioned IT infrastructure. In small companies, you find all three in one person. In large companies, you need three organizations working together."</p>
-                <p class="quote-attr">— Will Larson, Jan 2026</p>
-                <p class="quote-comment">This is the Mittelstand advantage nobody talks about. The Geschäftsführer who knows the machines, knows the market, and now learns AI — that person is a one-stop adoption engine.</p>
-            </div>
-        </div>
-
-        <div style="margin-top:3rem">
-            <h3 style="font-size:1.3rem;font-weight:300;margin-bottom:1.5rem;color:var(--white)">Notes</h3>
-
-            <div class="note-item">
-                <div class="note-date">Feb 7, 2026</div>
-                <p class="note-text"><strong>OpenAI burns $9B/year</strong> and may run out of cash by mid-2027. Meanwhile, Anthropic takes 40% enterprise market share and projects break-even by 2028. Consumer mindshare ≠ sustainable business. The infrastructure providers are the picks-and-shovels play.</p>
-            </div>
-
-            <div class="note-item">
-                <div class="note-date">Feb 5, 2026</div>
-                <p class="note-text"><strong>Opus 4.6 + GPT-5.3-Codex</strong> released within 15 minutes of each other. Simon Willison: "I'm finding it hard to find tasks that previous models couldn't handle." We're entering diminishing returns on raw model capability. The moat shifts to deployment, integration, and domain expertise.</p>
-            </div>
-
-            <div class="note-item">
-                <div class="note-date">Feb 4, 2026</div>
-                <p class="note-text"><strong>Mistral's Voxtral Transcribe 2</strong> — real-time speech-to-text, $0.003/minute. Open weights. At that price, every meeting, every phone call, every factory floor conversation becomes searchable text. Knowledge capture at industrial scale.</p>
-            </div>
-
-            <div class="note-item">
-                <div class="note-date">Feb 3, 2026</div>
-                <p class="note-text"><strong>Deno launches hosted sandboxes</strong> for running untrusted code. Everyone's building sandboxes right now — it's the missing piece for autonomous agents. When agents can safely execute arbitrary code, "software factory" becomes the default, not the exception.</p>
-            </div>
-        </div>
-
-        <p style="margin-top:3rem;text-align:center"><a href="https://florianziesche.substack.com" target="_blank" rel="noopener" style="font-size:.88rem">Read all dispatches on Substack →</a></p>
-    </div>
-</section>
-
-<hr class="divider">
-
-<section id="resources" class="fade">
-    <div class="w">
-        <span class="tag">Resources</span>
-        <h2>Free tools and frameworks</h2>
-        <div class="offering">
-            <h3>AI Due Diligence Checklist</h3>
-            <p>How I evaluate AI startups: architecture, data moats, hallucination rates, unit economics. The same framework I use as a VC Lab Fellow. <a href="mailto:f.ziesche.us@gmail.com?subject=AI%20Due%20Diligence%20Checklist">Request access</a></p>
-        </div>
-        <div class="offering">
-            <h3>AI Readiness Assessment</h3>
-            <p>Before you hire a consultant or buy a tool: is your business ready for AI? Where is the ROI real? A structured framework. <a href="mailto:f.ziesche.us@gmail.com?subject=AI%20Readiness%20Assessment">Request access</a></p>
-        </div>
-        <div class="offering">
-            <h3>The Operator's AI Stack 2026</h3>
-            <p>Every tool, model, and workflow I run daily to build multiple products as a solo operator. <a href="https://florianziesche.substack.com" target="_blank" rel="noopener">Subscribe</a> to get it when it drops.</p>
-        </div>
-    </div>
-</section>
-
-<hr class="divider">
-
-<section id="perspective" class="fade">
-    <div class="w">
-        <span class="tag">Perspective</span>
-        <h2>Most people talk about AI. I deploy it.</h2>
-        <p>The <span class="m">$11T</span> <a href="https://www.mckinsey.com/featured-insights/future-of-work" target="_blank" rel="noopener">global labor market</a> is 24× the <span class="m">$450B</span> software market. The opportunity isn't chatbots — it's <strong>replacing entire workflows</strong> in industries where expertise is scarce and labor is expensive.</p>
-        <p><a href="https://a16z.com/vertical-ai/" target="_blank" rel="noopener">Vertical AI</a> beats horizontal AI. The moat is <strong>domain knowledge encoded into systems</strong>, not model performance. The best AI is built by people who've worked in the industries they're automating — not by observers.</p>
-        <p>I've built from both sides: as a <a href="#work">startup CEO</a> shipping computer vision to automotive OEMs, and as an operator scaling a 150-person organization. <strong>Operators build better AI.</strong> The bridge between European industrial depth and American market scale is an arbitrage that compounds. That's where I work.</p>
-    </div>
-</section>
-
-<hr class="divider">
-
-<section id="about" class="fade">
-    <div class="w">
-        <span class="tag">About</span>
-        <div class="about-wrap">
-            <div class="photo">
-                <img src="florian-400.jpg" alt="Florian Ziesche">
-            </div>
-            <div class="bio">
-                <h2>Florian Ziesche</h2>
-                <span class="role">Founder, Ainary Ventures</span>
-                <p>Five years building AI companies. Started as CEO & Co-Founder, then MD/COO at <a href="https://36zerovision.com" target="_blank" rel="noopener">36ZERO Vision</a> in Munich. Now in New York & Munich, building AI systems and advising founders and SMEs through Ainary Ventures.</p>
-                <ul>
-                    <li>M.Sc. Business Administration, <a href="https://www.tum.de" target="_blank" rel="noopener" class="n" style="color:var(--gray);border-bottom:1px solid var(--gray2)">TU Munich</a></li>
-                    <li><span class="m">€5.5M+</span> raised across equity and grants</li>
-                    <li>Enterprise: BMW, Siemens, Bosch, Magna, Linamar</li>
-                    <li><a href="https://www.decilegroup.com" target="_blank" rel="noopener" class="n" style="color:var(--gray);border-bottom:1px solid var(--gray2)">VC Lab Fellow</a> — Decile Group, Cohort 6</li>
-                    <li><a href="https://www.alchemistaccelerator.com" target="_blank" rel="noopener" class="n" style="color:var(--gray);border-bottom:1px solid var(--gray2)">Alchemist Accelerator</a> — Batch & Coach</li>
-                </ul>
-                <div class="links">
-                    <a href="https://www.linkedin.com/in/florian-ziesche" target="_blank" rel="noopener">LinkedIn</a>
-                    <a href="https://x.com/Florian1776" target="_blank" rel="noopener">X</a>
-                    <a href="https://florianziesche.substack.com" target="_blank" rel="noopener">Substack</a>
-                </div>
-                <div class="contact">
-                    <a href="mailto:f.ziesche.us@gmail.com">f.ziesche.us@gmail.com</a><br>
-                    <a href="tel:+13477401465">+1 (347) 740-1465</a><br>
-                    New York, NY
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="ask-ai" class="fade">
-    <div class="w" style="text-align:center;padding:5rem 0">
-        <span class="tag">Try it</span>
-        <h2 style="font-size:clamp(1.5rem,3.5vw,2.2rem);margin-bottom:1rem">Have an AI use case?<br>Ask my AI if we can build it.</h2>
-        <p style="color:var(--gray);font-size:.9rem;max-width:480px;margin:0 auto 1rem">Describe your workflow, your bottleneck, your idea. Mia — my AI agent — will assess feasibility, estimate impact, and tell you honestly if it's worth building.</p>
-        <p style="color:var(--gray2);font-size:.78rem;margin-bottom:2.5rem">No sales pitch. No forms. Just a real AI evaluating your real problem.</p>
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-            <a href="mailto:f.ziesche.us@gmail.com?subject=AI%20Use%20Case%20Assessment&body=Hi%20Florian%2C%0A%0AHere%27s%20my%20use%20case%3A%0A%0A%5BDescribe%20your%20workflow%2C%20bottleneck%2C%20or%20idea%5D%0A%0AWhat%20I%27d%20like%20to%20achieve%3A%0A%0A%5BDescribe%20the%20outcome%20you%27re%20looking%20for%5D" class="n" style="display:inline-block;padding:.8rem 2.2rem;border:1px solid var(--gold);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.06em;border-radius:3px;transition:all .3s">✉️ Describe your use case</a>
-            <a href="https://wa.me/13477401465?text=Hi%20Florian%2C%20I%20have%20an%20AI%20use%20case%20I%27d%20like%20to%20discuss" target="_blank" rel="noopener" class="n" style="display:inline-block;padding:.8rem 2.2rem;border:1px solid var(--gray2);color:var(--gray);font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.06em;border-radius:3px;transition:all .3s">💬 WhatsApp</a>
-        </div>
-        <p style="color:var(--gray2);font-size:.7rem;margin-top:2rem;font-family:'JetBrains Mono',monospace">Response within 24 hours — assessed by AI, reviewed by human.</p>
-    </div>
-</section>
-
-<hr class="divider">
-
-<footer>
-    <p>© 2026 Ainary Ventures</p>
-</footer>
-
 <script>
-const f=document.querySelectorAll('.fade');
-const o=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.12});
-f.forEach(e=>o.observe(e));
+function toggleMia(){const b=document.getElementById('mia-body'),l=document.getElementById('mia-toggle-label');if(b.classList.contains('open')){b.classList.remove('open');l.textContent='↓'}else{b.classList.add('open');l.textContent='↑';document.getElementById('mia-input').focus()}}
+function openMiaWith(t){const b=document.getElementById('mia-body'),l=document.getElementById('mia-toggle-label');if(!b.classList.contains('open')){b.classList.add('open');l.textContent='↑'}setTimeout(()=>{addMsg(t,true);setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},700+Math.random()*600)},200);document.getElementById('mia').scrollIntoView({behavior:'smooth'})}
+const R={
+'fördermittel':['11 Förderprogramme für Glashütte identifiziert. Top 3: Kulturraum (Frist 31.08.), Glasfaser-Bundesförderung, Smarte Regionen.<br><a href="analyse-foerdermittel.html" style="color:var(--accent);font-weight:600;font-size:8pt">Fördermittel-Komplettscan →</a>'],
+'windkraft':['Windkraft/Umspannwerk: 46% der Bürgerdiskussionen, 78% negativ. 342 Posts analysiert, Trend steigend seit Dezember.<br><a href="analyse-buergerstimmung.html" style="color:var(--accent);font-weight:600;font-size:8pt">Bürgerstimmung 90-Tage →</a>'],
+'digital':['Glashütte: 1/6 digitale Services vs. Dippoldiswalde 5/6. Gleicher Anbieter (communicetime.de), 2-4 Wochen Umsetzung, ~€2-5k/Jahr.<br><a href="analyse-digitalisierung.html" style="color:var(--accent);font-weight:600;font-size:8pt">Digitalisierungsstrategie →</a>'],
+'uhren':['Luxusuhrenmarkt stabil (+3.2%). Alle Glashütter Manufakturen im Luxussegment. Leichte Sorge bei Nomos (Mittelsegment).<br><a href="analyse-uhrenindustrie.html" style="color:var(--accent);font-weight:600;font-size:8pt">Uhrenindustrie Marktbericht →</a>'],
+'danke':['Gern geschehen. Ich bin hier wenn Sie Fragen haben.'],
+'empfehlung':['Vielen Dank für Ihre Empfehlung. Das hilft uns und dem Empfänger.'],
+'termin':['Ich verbinde Sie mit Florian Ziesche.<br><a href="https://calendly.com/florian-ainaryventures/15-minutes-chat" style="color:var(--accent);font-weight:600;font-size:8pt" target="_blank">30-Minuten-Termin buchen →</a>'],
+'projekt_anfragen':['Was für ein Projekt schwebt Ihnen vor? Beschreiben Sie was Sie brauchen — ich erstelle ein Angebot mit Umfang, Credits und Confidence-Schätzung. Lieferung innerhalb von 2 Werktagen.'],
+'projektvorschlag':['Basierend auf Ihrem Profil und aktuellen Themen:<br><br><strong>1. Tourismuskonzept Uhrenstadt</strong> (3 Credits, ~85% Conf.)<br><strong>2. Fachkräfte-Kampagne</strong> (2 Credits, ~70%)<br><strong>3. Energie-Audit Kommune</strong> (2 Credits, ~75%)<br><br>Lieferung jeweils ca. 2 Werktage.'],
+'upload':['Formate: PDF, Word, Excel, Bilder. Alles verschlüsselt, nur für Ihre Analysen.<br><br><label style="display:inline-block;padding:6px 14px;border:1px solid var(--border2);border-radius:4px;font-size:7.5pt;color:var(--accent);cursor:pointer;transition:border-color .12s"><input type="file" style="display:none" onchange="addMsg(\'Datei: \'+this.files[0].name+\' (wird verarbeitet...)\',true);setTimeout(()=>addMsg(\'Danke! <strong>\'+this.files[0].name+\'</strong> wird analysiert. Ich melde mich in wenigen Minuten mit einer Zusammenfassung.\',false),1200)">Datei auswählen</label>'],
+};
+function findResponse(t){t=t.toLowerCase();if(t.includes('projekt anfragen')||t.includes('eigenes projekt'))return R['projekt_anfragen'];if(t.includes('vorschlag')||t.includes('vorschläge')||t.includes('empfiehlst'))return R['projektvorschlag'];if(t.includes('hochladen')||t.includes('upload')||t.includes('dokument'))return R['upload'];if(t.includes('förder')||t.includes('geld')||t.includes('antrag'))return R['fördermittel'];if(t.includes('wind')||t.includes('umspann'))return R['windkraft'];if(t.includes('digital')||t.includes('online')||t.includes('dippoldi'))return R['digital'];if(t.includes('uhr')||t.includes('lange')||t.includes('nomos'))return R['uhren'];if(t.includes('danke')||t.includes('super'))return R['danke'];if(t.includes('empfehl')||t.includes('teilen'))return R['empfehlung'];if(t.includes('termin')||t.includes('florian'))return R['termin'];return['Ich kann zu <strong>Fördermitteln</strong>, <strong>Digitalisierung</strong>, <strong>Bürgerstimmung</strong> und <strong>Uhrenindustrie</strong> Auskunft geben. Oder sagen Sie <strong>„Projektvorschlag"</strong>.'];}
+function addMsg(t,u){const m=document.getElementById('mia-messages'),d=document.createElement('div');d.className='mia-msg'+(u?' user':'');if(u){d.innerHTML='<div class="mia-msg-t">'+t+'</div>';m.appendChild(d);m.scrollTop=m.scrollHeight}else{const av=document.createElement('div');av.className='mia-msg-a';av.textContent='M';const tb=document.createElement('div');tb.className='mia-msg-t';d.appendChild(av);d.appendChild(tb);m.appendChild(d);m.scrollTop=m.scrollHeight;const chars=t.split('');let i=0,buf='',inTag=false;function tick(){if(i>=chars.length){tb.innerHTML=t;m.scrollTop=m.scrollHeight;return}buf+=chars[i];if(chars[i]==='<')inTag=true;if(chars[i]==='>')inTag=false;i++;if(inTag){tick()}else{tb.innerHTML=buf;m.scrollTop=m.scrollHeight;setTimeout(tick,14+Math.random()*10)}}tick()}}
+function sendChip(t){const b=document.getElementById('mia-body'),l=document.getElementById('mia-toggle-label');if(!b.classList.contains('open')){b.classList.add('open');l.textContent='↑'}addMsg(t,true);setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*600)}
+function sendMia(){const i=document.getElementById('mia-input'),t=i.value.trim();if(!t)return;addMsg(t,true);i.value='';setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*800)}
 </script>
-
 </body>
 </html>
