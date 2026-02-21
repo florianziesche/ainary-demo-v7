@@ -23,7 +23,7 @@
   .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
   .brand-name{font-weight:500;color:var(--muted)}
   .portal-center{display:flex;align-items:center;gap:8px;color:var(--muted)}
-  .portal-right{display:flex;align-items:center;gap:12px;font-family:var(--m)}
+  .portal-right{display:flex;align-items:center;gap:12px;font-family:var(--m);color:var(--muted)}
   .portal-credits{color:var(--accent)}
   .portal-back{color:var(--muted)}
 
@@ -117,12 +117,12 @@
   <div style="font-size:22pt;font-weight:700;letter-spacing:-.02em;margin-bottom:2px"><span id="greeting">Guten Morgen</span>, Herr Gleißberg.</div>
   <div style="font-size:10pt;color:var(--text2);margin-bottom:4px">Ihre Wochen-Übersicht für Glashütte.</div>
   <div style="height:1px;background:var(--accent);opacity:.15;margin-bottom:8px"></div>
-  <div style="font-family:var(--m);font-size:7.5pt;color:var(--muted);text-align:right;margin-bottom:20px">
-    <span><span style="color:var(--muted)">Seite 1.</span> <a href="index.html" style="color:var(--light)">Übersicht →</a></span>
-    <span><span style="color:var(--muted)">Seite 3.</span> <a href="projekte.html" style="color:var(--light)">Projekte →</a></span>
-    <span><span style="color:var(--muted)">Seite 4.</span> <a href="dokumente.html" style="color:var(--light)">Dokumente →</a></span>
+  <div style="display:flex;gap:0;font-family:var(--m);font-size:7.5pt;margin-bottom:20px">
+    <a href="index.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Übersicht</a>
+    <a href="analyse.html" style="padding:6px 14px;border-bottom:2px solid var(--accent);color:var(--accent);font-weight:500">Analyse</a>
+    <a href="projekte.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Projekte</a>
+    <a href="dokumente.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Dokumente</a>
   </div>
-
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px">
     <div style="border:1px solid var(--border2);border-radius:8px;padding:16px;text-align:center;background:var(--surface)">
       <div style="font-family:var(--m);font-size:14pt;font-weight:700">~93 Std.</div>
