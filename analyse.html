@@ -153,60 +153,22 @@
   <div class="hero-rule"></div>
   <div class="hero-sub">Die Frage ist nicht ob Sie KI brauchen. Sondern wann.</div>
 
-  <!-- Unit Chart: 100 dots = Ihr Team -->
-  <div style="margin:24px 0 8px;font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.08em;text-transform:uppercase">Ihr Team — 100 Mitarbeiter</div>
-  <!-- Two unit charts side by side -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:24px 0">
-
-    <!-- Rathaus -->
-    <div>
-      <div style="font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">Im Rathaus — Verwaltung</div>
-      <div id="unit-rathaus" style="display:grid;grid-template-columns:repeat(10,1fr);gap:4px"></div>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:7pt">
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#c0392b;flex-shrink:0"></span> <span style="color:var(--muted)">33 Rente bis 2030</span></span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;border:1.5px dashed var(--border);background:none;flex-shrink:0"></span> <span style="color:var(--muted)">12 unbesetzt</span></span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#1a1a1a;flex-shrink:0"></span> <span style="color:var(--muted)">22 Routine</span></span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#e0dfdb;flex-shrink:0"></span> <span style="color:var(--muted)">33 wertschöpfend</span></span>
-      </div>
-      <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:6px">Von 50 Mitarbeitern gehen 17 in Rente. 6 Stellen unbesetzt. 11 machen nur Routine.</div>
-    </div>
-
-    <!-- Betriebe / Fachkräfte -->
-    <div>
-      <div style="font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">In der Region — Fachkräfte</div>
-      <div id="unit-betriebe" style="display:grid;grid-template-columns:repeat(10,1fr);gap:4px"></div>
-      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:7pt">
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#c0392b;flex-shrink:0"></span> <span style="color:var(--muted)">29 Rente bis 2030</span></span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;border:1.5px dashed var(--border);background:none;flex-shrink:0"></span> <span style="color:var(--muted)">17 unbesetzt</span></span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#b45309;flex-shrink:0"></span> <span style="color:var(--muted)">21 ungelernt / umschulbar</span></span>
-        <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#e0dfdb;flex-shrink:0"></span> <span style="color:var(--muted)">33 Fachkräfte</span></span>
-      </div>
-      <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:6px">Sachsen: 54% der Betriebe können Stellen nicht besetzen. KI kann Förderprogramme, Umschulungen und Standortmarketing automatisieren.</div>
-    </div>
-
+  <!-- Unit Chart: 100 dots = 100% Ihrer Verwaltung -->
+  <div style="font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin:24px 0 8px">100 Mitarbeiter — Was passiert bis 2030</div>
+  <div id="unit-chart" style="display:grid;grid-template-columns:repeat(10,1fr);gap:4px;max-width:400px"></div>
+  <div style="display:flex;gap:16px;margin-top:10px;font-size:7.5pt;flex-wrap:wrap">
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#c0392b;flex-shrink:0"></span> <span style="color:var(--muted)">33 gehen in Rente</span> <span style="font-family:var(--m);font-size:6pt;color:var(--light)">dbb 2023</span></span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#1a1a1a;flex-shrink:0"></span> <span style="color:var(--muted)">27 machen Routine</span> <span style="font-family:var(--m);font-size:6pt;color:var(--light)">KGSt 2024</span></span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:8px;height:8px;border-radius:2px;background:#e0dfdb;flex-shrink:0"></span> <span style="color:var(--muted)">40 wertschöpfende Arbeit</span></span>
   </div>
-
+  <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:6px">Von 50 Mitarbeitern gehen 17 in Rente. Von den verbleibenden 33 verbringen 13 ihre Zeit mit Routine.</div>
   <script>
   (function(){
-    // Rathaus: 33 ret + 12 vac + 22 rout + 33 prod = 100
-    const r=document.getElementById('unit-rathaus');
-    [{n:33,t:'ret'},{n:12,t:'vac'},{n:22,t:'rout'},{n:33,t:'prod'}].forEach(g=>{
-      for(let i=0;i<g.n;i++){const d=document.createElement('div');d.style.cssText='width:100%;aspect-ratio:1;border-radius:3px;';
-        if(g.t==='ret')d.style.background='#c0392b';
-        else if(g.t==='vac'){d.style.border='1.5px dashed #bbb';d.style.background='none';}
-        else if(g.t==='rout')d.style.background='#1a1a1a';
-        else d.style.background='#e0dfdb';
-        r.appendChild(d);}
-    });
-    // Betriebe: 29 ret + 17 vac + 21 unskilled + 33 skilled = 100
-    const b=document.getElementById('unit-betriebe');
-    [{n:29,t:'ret'},{n:17,t:'vac'},{n:21,t:'train'},{n:33,t:'prod'}].forEach(g=>{
-      for(let i=0;i<g.n;i++){const d=document.createElement('div');d.style.cssText='width:100%;aspect-ratio:1;border-radius:3px;';
-        if(g.t==='ret')d.style.background='#c0392b';
-        else if(g.t==='vac'){d.style.border='1.5px dashed #bbb';d.style.background='none';}
-        else if(g.t==='train')d.style.background='#b45309';
-        else d.style.background='#e0dfdb';
-        b.appendChild(d);}
+    const c=document.getElementById('unit-chart');
+    [{n:33,bg:'#c0392b'},{n:27,bg:'#1a1a1a'},{n:40,bg:'#e0dfdb'}].forEach(g=>{
+      for(let i=0;i<g.n;i++){const d=document.createElement('div');
+        d.style.cssText='width:100%;aspect-ratio:1;border-radius:3px;background:'+g.bg;
+        c.appendChild(d);}
     });
   })();
   </script>
